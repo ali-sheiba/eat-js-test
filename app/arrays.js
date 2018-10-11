@@ -3,55 +3,39 @@ exports = typeof window === 'undefined' ? global : window;
 exports.arraysAnswers = {
   indexOf: (arr, item) => arr.findIndex(i => i === item),
 
-  sum: function(arr) {
+  sum: (arr) => arr.reduce((a, b) => (a + b)),
 
-  },
-
-  remove: function(arr, item) {
-
-  },
+  remove: (arr, item) => arr.filter( i => i !== item ),
 
   removeWithoutCopy: function(arr, item) {
 
   },
 
-  append: function(arr, item) {
+  append: (arr, item) => [...arr, item],
 
-  },
+  truncate: (arr) => arr.pop() && arr,
 
-  truncate: function(arr) {
+  prepend: (arr, item) => [item, ...arr],
 
-  },
+  curtail: (arr) => arr.shift() && arr,
 
-  prepend: function(arr, item) {
+  concat: (arr1, arr2) => [...arr1, ...arr2],
 
-  },
+  insert: (arr, item, index) => arr.splice(index, 0, item) && arr,
 
-  curtail: function(arr) {
-
-  },
-
-  concat: function(arr1, arr2) {
-
-  },
-
-  insert: function(arr, item, index) {
-
-  },
-
-  count: function(arr, item) {
-
-  },
+  count: (arr, item) => arr.filter(i => i === item).length,
 
   duplicates: function(arr) {
-
+    let items = []
+    arr.map(i => arr.filter(y => y === i).length > 1 && !items.includes(i) && items.push(i))
+    return items;
   },
 
-  square: function(arr) {
-
-  },
+  square: (arr) => arr.map(i => i * i),
 
   findAllOccurrences: function(arr, target) {
-
+    let indexes = []
+    arr.map((val, i) => val === target && indexes.push(i))
+    return indexes
   }
 };

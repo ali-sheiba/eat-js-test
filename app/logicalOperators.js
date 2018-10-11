@@ -1,11 +1,7 @@
 exports = typeof window === 'undefined' ? global : window;
 
 exports.logicalOperatorsAnswers = {
-  or: function(a, b) {
+  or: (a, b) => a || b,
 
-  },
-
-  and: function(a, b) {
-
-  }
+  and: (a, b) => a && b,
 };

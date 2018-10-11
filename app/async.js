@@ -1,11 +1,9 @@
 exports = typeof window === 'undefined' ? global : window;
 
 exports.asyncAnswers = {
-  async: function(value) {
+  async: (value) => new Promise((resolve, reject) => resolve(value)),
 
-  },
-
-  manipulateRemoteData: function(url) {
-
-  }
+  manipulateRemoteData: (url) => fetch(url)
+    .then(res => res.json())
+    .then(data => data.people.map(e => e.name).sort())
 };

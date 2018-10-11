@@ -1,19 +1,15 @@
 exports = typeof window === 'undefined' ? global : window;
 
 exports.numbersAnswers = {
-  valueAtBit: function(num, bit) {
+  // the test is failing !
+  valueAtBit: (num, bit) => num & bit,
 
-  },
+  base10: (str) => parseInt(str, 2),
 
-  base10: function(str) {
-
-  },
-
-  convertToBinary: function(num) {
-
-  },
+  // the test is failing !
+  convertToBinary: (num) => (num).toString(2),
 
   multiply: function(a, b) {
-
+    return parseFloat((a * b).toFixed(b.toString().split('.')[1].length))
   }
 };

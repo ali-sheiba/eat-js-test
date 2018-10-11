@@ -1,17 +1,11 @@
 exports = typeof window === 'undefined' ? global : window;
 
 exports.functionsAnswers = {
-  argsAsArray: function(fn, arr) {
+  argsAsArray: (fn, arr) => fn(...arr),
 
-  },
+  speak: (fn, obj) => fn.call(obj),
 
-  speak: function(fn, obj) {
-
-  },
-
-  functionFunction: function(str) {
-
-  },
+  functionFunction: (str) => (str2) => `${str}, ${str2}`,
 
   makeClosures: function(arr, fn) {
 
@@ -22,7 +16,11 @@ exports.functionsAnswers = {
   },
 
   useArguments: function() {
-
+    let sum = 0
+    for (let i = 0; i < arguments.length; i++) {
+      sum += arguments[i];
+    }
+    return sum
   },
 
   callIt: function(fn) {
